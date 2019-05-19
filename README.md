@@ -15,3 +15,13 @@ chmod a+x run-tests.sh
 
 ./run-tests.sh
 
+### Docker
+
+There's a Dockerfile that can be used to build an image that will run the code using a sample input file. After that, it will keep the container running so you can connect to it to see the results and run more manual tests. Commands:
+
+docker build --tag=fixedwidth .
+
+docker run -d fixedwidth
+
+docker exec -it (container_id) /bin/bash
+
