@@ -34,6 +34,22 @@ aaabbccccc""")
         self.assertEqual(csv_output.getvalue(), expected_output)
 
 
+    def test_convert_text_with_missing_data(self):
+        text_input = io.StringIO(
+"""11122333
+x
+aaab""")
+        csv_output = io.StringIO()
+
+        columns = [ ColumnSpec("f1",3), ColumnSpec("f2",2), ColumnSpec("f3",5) ]
+        file_spec = FileSpec(columns = columns, include_header = True, input_encoding="utf-8", output_encoding="utf-8")
+
+        tc.convert_text(text_input, csv_output, file_spec)
+
+        expected_output = "f1,f2,f3\r\n111,22,\r\naaa,,\r\n"
+        self.assertEqual(csv_output.getvalue(), expected_output)
+
+
 if __name__ == '__main__':
     unittest.main()
 

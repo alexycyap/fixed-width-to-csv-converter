@@ -14,6 +14,8 @@ def convert_text(text_input, csv_output, file_spec):
         writer.writeheader()
 
     for in_line in text_input:
-        writer.writerow(cg.generate_row_dict(in_line, file_spec.columns))
+        row_dict = cg.generate_row_dict(in_line, file_spec.columns)
+        if len(row_dict) > 0:
+            writer.writerow(row_dict)
 
     return csv_output    
