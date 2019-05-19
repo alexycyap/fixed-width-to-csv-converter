@@ -1,5 +1,15 @@
 
 def generate_row_dict(input, columns_spec):
+    '''
+    Generates a dictionary of column names to values, representing the values of a single row of fixed-width input data parsed using the specified columns specifications.
+
+    :param str input: A single row of fixed-width input data
+    :param list[ColumnSpec] columns_spec: A list of ColumnSpec objects with which to parse the input
+    :return: dict of column names to values
+    :rtype: dict[str, str]
+    :raises AssertionError: If the input row data has less data than what the columns_spec expects
+    '''
+
     output_dict = {}
     index = 0
     for col_spec in columns_spec:

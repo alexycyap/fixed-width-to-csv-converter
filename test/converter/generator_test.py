@@ -17,7 +17,6 @@ class DictGeneratorTest(unittest.TestCase):
         row_dict = cg.generate_row_dict(input, columns_spec)
         self.assertEqual(row_dict, { "f1":"aaa", "f2":"bbbbb", "f3":"cc" } )
 
-
 if __name__ == '__main__':
     unittest.main()
 
